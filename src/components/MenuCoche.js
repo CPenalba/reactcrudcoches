@@ -74,7 +74,7 @@ export default class MenuCoche extends Component {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    Dropdown
+                    Marcas
                   </a>
                   <ul className="dropdown-menu">
                     {this.state.coches.map((c, index) => {
@@ -82,7 +82,7 @@ export default class MenuCoche extends Component {
                         <li key={index}>
                           <NavLink
                             className="dropdown-item"
-                            to={"/detalle/" + c.idCoche}
+                            to={"/buscar/" + c.marca}
                           >
                             {c.marca}
                           </NavLink>

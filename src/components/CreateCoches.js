@@ -46,19 +46,19 @@ export default class CreateCoches extends Component {
         <h1>New coche</h1>
         <form>
           <label>Id coche: </label>
-          <input type="text" ref={this.cajaId} className="form-control" />
+          <input type="text" ref={this.cajaId} className="form-control" placeholder="Escriba el id"/>
           <label>Marca coche: </label>
-          <input type="text" ref={this.cajaMarca} className="form-control" />
+          <input type="text" ref={this.cajaMarca} className="form-control" placeholder="Escriba la marca" />
           <label>Modelo coche: </label>
-          <input type="text" ref={this.cajaModelo} className="form-control" />
+          <input type="text" ref={this.cajaModelo} className="form-control"  placeholder="Escriba el modelo"/>
           <label>Conductor coche: </label>
           <input
             type="text"
             ref={this.cajaConductor}
-            className="form-control"
+            className="form-control" placeholder="Escriba el conductor"
           />
           <label>Imagen coche </label>
-          <input type="text" ref={this.cajaImagen} className="form-control" />
+          <input type="text" ref={this.cajaImagen} className="form-control" placeholder="Escriba la url de la imagen"/>
           <button onClick={this.insertarCoche} className="btn btn-danger">
             Insertar coche
           </button>
