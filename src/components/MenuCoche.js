@@ -6,6 +6,7 @@ import Global from "./Global";
 export default class MenuCoche extends Component {
   state = {
     coches: [],
+    marcasUnicas: [],
   };
 
   loadCoches = () => {
@@ -13,8 +14,15 @@ export default class MenuCoche extends Component {
     let url = Global.apiCoches + request;
     axios.get(url).then((response) => {
       console.log("leyendo coches");
+      let aux = [];
+      response.data.forEach((coche) => {
+        if (!aux.includes(coche.marca)) {
+          aux.push(coche.marca);
+        }
+      });
       this.setState({
         coches: response.data,
+        marcasUnicas: aux,
       });
     });
   };
@@ -77,14 +85,14 @@ export default class MenuCoche extends Component {
                     Marcas
                   </a>
                   <ul className="dropdown-menu">
-                    {this.state.coches.map((c, index) => {
+                    {this.state.marcasUnicas.map((marca, index) => {
                       return (
                         <li key={index}>
                           <NavLink
                             className="dropdown-item"
-                            to={"/buscar/" + c.marca}
+                            to={"/buscar/" + marca}
                           >
-                            {c.marca}
+                            {marca}
                           </NavLink>
                         </li>
                       );
